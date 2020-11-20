@@ -60,8 +60,8 @@ body {
 }
 
 .sidebar img,
-.content-sidebar .users-list .user-box img {
-    display: inline-block;
+.content-sidebar .users-list .user-box img,
+.message-box .top-message-box .user-box-open img {
     height: 90%;
     border-radius: 50%;
     padding: 10px 0;
@@ -71,8 +71,9 @@ body {
     align-items: center;
 }
 
-.sidebar .top-sidebar .icon span i {
-    padding-left: 10px;
+.sidebar .top-sidebar .icon span i,
+.message-box .top-message-box .icon-top-message i {
+    padding: 0 0.5rem;
     font-size: 1.4rem;
     color: #b1b1b1;
 }
@@ -146,7 +147,7 @@ body {
     width: 100%;
     height: 80px;
     padding-left: 1.8rem;
-    border-bottom: 1px solid #f5f5f5;
+    border-top: 1px solid #f5f5f5;
     align-items: center;
 }
 
@@ -162,8 +163,50 @@ body {
     justify-content: space-between;
 }
 
+.message-box .top-message-box .user-box-open {
+    height: 100%;
+    align-items: center;
+}
+
+.message-box .top-message-box .user-box-open .user-open-text {
+    margin-left: 1rem;
+}
+
+.message-box .top-message-box .user-box-open .user-open-text p{
+    font-size: 0.8rem;
+    opacity: 0.4;
+    padding-top: 0.2rem;
+}
+
+.message-box .top-message-box .icon-top-message {
+    align-items: center;
+}
+
+/* MAIN PART MESSAGE */
 .message-box .central-message-box {
     flex: 2 1 auto;
     background-image: url('../img/mine.jpg');
     background-position: center;
+}
+
+/* BOTTOM PART MESSAGE */
+.bottom-message-box {
+    align-items: center;
+    justify-content: space-around !important;
+    background-color: #f3eeea !important;
+}
+
+.bottom-message-box i {
+   font-size: 1.6rem;
+   opacity: 0.5;
+}
+
+.bottom-message-box input[type="text"] {
+    width: 80%;
+    height: 75%;
+    border-radius: 0.5rem;
+    border: none;
+    color: rgba(0, 0, 0, 0.4);
+    padding-left: 1rem;
+    background-color: white;
 }
