@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Boolzap</title>
+
+		<!-- Font Awesome 5.15.1 (CDN) -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet"> 
+
+		<!-- VUE 2.x development version, includes helpful console warnings -->
+		<!-- Static (v2.6.12) -->
+		<script src="libs/vue.js" charset="utf-8"></script>
+		
+	</head>
+	<body class="">
+		<!-- VUE root element -->
+		<div id="root">
+			<div class="container d-flex">
+				<div class="sidebar d-flex">
+					<div class="top-sidebar custom_bar d-flex">
+						<div class="user_info d-flex">
+							<img src="img/avatar_io.jpg" alt="">
+							<span>Gabriele</span>
+						</div>
+						<div class="icon">
+							<span><i class="fas fa-circle-notch"></i></span>
+							<span><i class="fas fa-comment-alt"></i></span>
+							<span><i class="fas fa-ellipsis-v"></i></span>
+						</div>
+					</div>
+					<div class="notif-new-message d-flex">
+						<div class="bell-icon">
+							<span><i class="fas fa-bell-slash"></i></span>
+						</div>
+						<div class="notif-text">
+							<p>Ricevi notifiche di nuovi messaggi</p>
+							<p>Attiva notifiche desktop</p>
+						</div>
+					</div>
+					<div class="content-sidebar">
+						<div class="search">
+							<i class="fas fa-search"></i>
+							<input type="text" name="search" id="" placeholder="Cerca o inizia una nuova chat">
+						</div>
+						<div class="users-list">
+							<div class="user-box d-flex">
+								<img src="img/avatar_1.jpg" alt="">
+								<span>Michele</span>
+							</div>
+							<div class="user-box d-flex">
+								<img src="img/avatar_2.jpg" alt="">
+								<span>Fabio</span>
+							</div>
+							<div class="user-box d-flex">
+								<img src="img/avatar_3.jpg" alt="">
+								<span>Samuele</span>
+							</div>
+							<div class="user-box d-flex">
+								<img src="img/avatar_8.jpg" alt="">
+								<span>Luisa</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="message-box d-flex">
+					<div class="top-massage-box custom_bar">
+						
+					</div>
+					<div class="central-message-box">
+
+					</div>
+					<div class="bottom-message-box custom_bar">
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Custom JS -->
+		<script src="js/main.js" charset="utf-8"></script>
+	</body>
+</html>
