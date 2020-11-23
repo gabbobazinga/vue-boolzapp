@@ -75,6 +75,7 @@
 						<div class="message" v-for="message in contacts[currentUserIndex].hystoryMessage" :class="message.type">
 							<p>{{message.text}}</p>
 							<p class="time-message">{{message.sentTime}}</p>
+							<a><i class="fas fa-chevron-down"></i></a>
 						</div>
 					</div>
 					<div class="bottom-message-box custom_bar d-flex">
