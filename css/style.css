@@ -214,6 +214,7 @@ body {
     margin-right: 10%;
     margin-top: 1rem;
     position: relative;
+    word-wrap: break-word;
 }
 
 .message-box .central-message-box .message:hover i{
@@ -253,6 +254,7 @@ body {
     align-items: center;
     justify-content: space-around !important;
     background-color: #f3eeea !important;
+    min-height: 80px;
 }
 
 .bottom-message-box i {
@@ -262,6 +264,7 @@ body {
 
 .bottom-message-box input[type="text"] {
     width: 80%;
+    max-width: 80%;
     height: 75%;
     border-radius: 0.5rem;
     border: none;

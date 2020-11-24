@@ -80,13 +80,12 @@
 					</div>
 					<div class="bottom-message-box custom_bar d-flex">
 						<i class="far fa-smile"></i>
-						<input type="text" name="message-field" id="" placeholder="Scrivi un messaggio">
+						<input @keyup.enter="submit(sendMessage), answersRandom(currentUserIndex)" type="text" name="message-field" placeholder="Scrivi un messaggio" v-model="sendMessage">
 						<i class="fas fa-microphone"></i>
 					</div>
 				</div>
 			</div>
 		</div>
-
 		<!-- Custom JS -->
 		<script src="js/main.js" charset="utf-8"></script>
 	</body>

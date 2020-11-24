@@ -3,28 +3,25 @@ const loggedUser = {
     nameUser: 'Gabriele'
 };
 
-let date = new Date();
-let currentDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
-
 const contacts = [
     {
         avatarUrl: 'img/avatar_1.jpg',
         nameUser: 'Michele',
-        lastSeen: date.toLocaleTimeString(),
+        lastSeen: new Date().getHours() + ':' + new Date().getUTCMinutes(),
         hystoryMessage: [
             {
                 text: 'La marianna va in campagnia',
-                sentTime: currentDate,
+                sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
                 type: 'sent'
             },
             {
                 text: 'Hai sbagliato numero',
-                sentTime: currentDate,
+                sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
                 type: 'received'
             },
             {
                 text: 'Ah scusa!',
-                sentTime: currentDate,
+                sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
                 type: 'sent'
             },
         ]
@@ -32,16 +29,16 @@ const contacts = [
     {
         avatarUrl: 'img/avatar_2.jpg',
         nameUser: 'Fabio',
-        lastSeen: date.toLocaleTimeString(),
+        lastSeen: new Date().getHours() + ':' + new Date().getUTCMinutes(),
         hystoryMessage: [
             {
                 text: 'Prova 1',
-                sentTime: currentDate,
+                sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
                 type: 'sent'
             },
             {
                 text: 'Prova 2',
-                sentTime: currentDate,
+                sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
                 type: 'received'
             }
         ]
@@ -49,16 +46,16 @@ const contacts = [
     {
         avatarUrl: 'img/avatar_3.jpg',
         nameUser: 'Samuele',
-        lastSeen: date.toLocaleTimeString(),
+        lastSeen: new Date().getHours() + ':' + new Date().getUTCMinutes(),
         hystoryMessage: [
             {
                 text: 'Prova 3',
-                sentTime: currentDate,
+                sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
                 type: 'sent'
             },
             {
                 text: 'Prova 4',
-                sentTime: currentDate,
+                sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
                 type: 'received'
             }
         ]
@@ -66,18 +63,9 @@ const contacts = [
     {
         avatarUrl: 'img/avatar_8.jpg',
         nameUser: 'Luisa',
-        lastSeen: date.toLocaleTimeString(),
+        lastSeen: new Date().getHours() + ':' + new Date().getUTCMinutes(),
         hystoryMessage: [
-            {
-                text: 'Prova 5',
-                sentTime: currentDate,
-                type: 'sent'
-            },
-            {
-                text: 'Prova 6',
-                sentTime: currentDate,
-                type: 'received'
-            }
+            
         ]
     },
     
@@ -89,10 +77,36 @@ const app = new Vue({
         contacts: [...contacts],
         loggedUser: {...loggedUser},
         currentUserIndex: 0,
+        sendMessage: '',
     },
     methods: {
         userSelected: function(i){
             this.currentUserIndex = i;
         },
+        submit: function(e) {
+            if(e != ''){
+                this.contacts[this.currentUserIndex].
+                    hystoryMessage.push({
+                                            text: e, 
+                                            sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(), 
+                                            type: 'sent'
+                                        });
+                //this.sendMessage = '';
+            }
+        },
+        generateAnswer: function(i) {
+            this.contacts[i].
+                    hystoryMessage.push({
+                                            text: 'ok', 
+                                            sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(), 
+                                            type: 'received'
+                                        });
+        },
+        answersRandom: function(i) {
+            if(this.sendMessage != ''){
+                setTimeout(() => {this.generateAnswer(i)},3000);
+                this.sendMessage = '';
+            }
+        }
     }
 })
