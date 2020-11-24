@@ -107,7 +107,14 @@ const app = new Vue({
             if(this.sendMessage != ''){
                 setTimeout(() => {this.generateAnswer(i)},3000);
                 this.sendMessage = '';
+                this.autoscroll();
             }
+        },
+        autoscroll: function() {
+           Vue.nextTick(function(){
+                let windowChat = document.getElementsByClassName('central-message-box')[0]; 
+                windowChat.scrollTop = windowChat.scrollHeight;
+            })
         }
     },
     computed: {
