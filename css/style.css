@@ -50,10 +50,15 @@ body {
     background-color: #e9ebeb;
 }
 
+.d-none {
+    display: none;
+}
+
 /* SIDEBAR */
 .sidebar {
     flex: 0 0 40%;
     width: 30%;
+    min-width: 280px;
     flex-flow: column nowrap;
     border-right: 1px solid #b1b1b1;
     overflow: hidden;
@@ -170,6 +175,7 @@ body {
 /* MESSAGE_BOX */
 .message-box {
     flex: 0 0 60%;
+    min-width: 390px;
     flex-flow: column nowrap;
     justify-content: space-between;
 }

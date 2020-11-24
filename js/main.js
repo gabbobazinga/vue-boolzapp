@@ -78,6 +78,7 @@ const app = new Vue({
         loggedUser: {...loggedUser},
         currentUserIndex: 0,
         sendMessage: '',
+        inputSearchContact: '',
     },
     methods: {
         userSelected: function(i){
@@ -108,5 +109,12 @@ const app = new Vue({
                 this.sendMessage = '';
             }
         }
+    },
+    computed: {
+        filterUsers() {
+            return this.contacts.filter(contact => {
+                return contact.nameUser.toLowerCase().includes(this.inputSearchContact.toLowerCase());
+            });
+        }
     }
-})
+});

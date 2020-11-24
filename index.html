@@ -45,11 +45,11 @@
 					</div>
 					<div class="search">
 						<i class="fas fa-search"></i>
-						<input type="text" name="search" id="" placeholder="Cerca o inizia una nuova chat">
+						<input v-model="inputSearchContact" type="text" name="search-contact" id="" placeholder="Cerca o inizia una nuova chat">
 					</div>
 					<div class="content-sidebar">
 						<div class="users-list">
-							<div @click="userSelected(index)" class="user-box d-flex" v-for="(contact, index) in contacts" :class="{bgSelected: index == currentUserIndex}">
+							<div @click="userSelected(index)" class="user-box d-flex" v-for="(contact, index) in filterUsers" :class="{bgSelected: index == currentUserIndex}">
 								<img :src="contact.avatarUrl" alt="">
 								<span>{{contact.nameUser}}</span>
 							</div>
