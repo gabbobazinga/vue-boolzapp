@@ -27,10 +27,6 @@ body {
             #d2dbdc 100%);
 }
 
-.d-flex {
-    display: flex;
-}
-
 .container {
     width: 80vw;
     height: 90vh;
@@ -48,10 +44,6 @@ body {
 
 .bgSelected {
     background-color: #e9ebeb;
-}
-
-.d-none {
-    display: none;
 }
 
 /* SIDEBAR */
@@ -204,6 +196,7 @@ body {
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    padding-bottom: 1rem;
 }
 
 .message-box .central-message-box::-webkit-scrollbar {
@@ -255,6 +248,31 @@ body {
     padding-right: 1.5rem;
 }
 
+/* DROPDOWN-MENU */
+.message .dropdown-menu {
+    position: absolute;
+    left: 50%;
+    width: 80%;
+    top: 40%;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px #888888;
+    text-align: center;
+    visibility: hidden;
+}
+
+.message .dropdown-menu .dropdown-item li {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+    list-style-type: none;
+}
+
+.message .dropdown-menu .dropdown-item:hover li {
+    cursor: pointer;
+    background-color: #f0ebeb;
+    border-radius: 0.5rem;
+}
+
 /* BOTTOM PART MESSAGE */
 .bottom-message-box {
     align-items: center;
@@ -266,6 +284,7 @@ body {
 .bottom-message-box i {
    font-size: 1.6rem;
    opacity: 0.5;
+   cursor: pointer;
 }
 
 .bottom-message-box input[type="text"] {
@@ -274,7 +293,81 @@ body {
     height: 75%;
     border-radius: 0.5rem;
     border: none;
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0);
     padding-left: 1rem;
     background-color: white;
+}
+
+.dropdown-emoji {
+    min-height: 30%;
+    max-height: 30%;
+    background-color: #f3eeea;
+    display: none;
+}
+
+.dropdown-emoji .category-emoji {
+    min-height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(177,177,177,0.2);
+}
+
+.dropdown-emoji .category-emoji .emoji-selected {
+    width: calc(100% / 9);
+    text-align: center;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.dropdown-emoji .category-emoji i {
+    font-size: 1.3rem;
+    color: #b1b1b1;
+    cursor: pointer;
+}
+
+.dropdown-emoji .emoji-list {
+    max-height: calc(100% - 15%);
+    overflow: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+}
+
+.dropdown-emoji .emoji-list::-webkit-scrollbar {
+    display: none;
+}
+
+.dropdown-emoji .emoji-list ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.dropdown-emoji .emoji-list ul li{
+    font-size: 1.5rem;
+}
+
+.dropdown-emoji .emoji-list p {
+    color: #B1B1B1;
+    padding: 0.5rem;
+}
+
+/* GENERAL IMPORTANT*/
+.visible {
+    visibility: visible !important;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-block {
+    display: block;
+}
+
+.border-bottom-selected {
+    border-bottom: 3px solid #009688;
 }

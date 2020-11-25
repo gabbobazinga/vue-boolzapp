@@ -77,8 +77,78 @@ const app = new Vue({
         contacts: [...contacts],
         loggedUser: {...loggedUser},
         currentUserIndex: 0,
+        emojiIndex: 0,
         sendMessage: '',
         inputSearchContact: '',
+        isVisible: false,
+        isClicked: false,
+        dataEmoji: [
+            [
+                {
+                    title: "Recenti",
+                    emoji: [...recently]
+                }
+            ],
+            [
+                {
+                    title: "Faccine e Persone",
+                    emoji: [...smileys, ...people]
+                }
+            ],
+            [
+                {
+                    title: "Animali e Natura",
+                    emoji: [...animalNature]
+                }
+            ],
+            [
+                {
+                    title: "Cibo e Bevande",
+                    emoji: [...food]
+                }
+            ],
+            [
+                {
+                    title: "Attività",
+                    emoji: [...activities]
+                }
+            ],
+            [
+                {
+                    title: "Viaggi e Luoghi",
+                    emoji: [...travel]
+                }
+            ],
+            [
+                {
+                    title: "Oggetti",
+                    emoji: [...object]
+                }
+            ],
+            [
+                {
+                    title: "Simboli",
+                    emoji: [...symbol]
+                }
+            ],
+            [
+                {
+                    title: "Vestiti",
+                    emoji: [...clothing]
+                }
+            ],
+        ],
+        iconEmoji: [
+            'far fa-clock',
+            'far fa-grin',
+            'fas fa-paw',
+            'fas fa-hamburger',
+            'far fa-futbol',
+            'fas fa-car',
+            'far fa-lightbulb',
+            'far fa-plus-square',
+            'fas fa-tshirt',
+        ]
     },
     methods: {
         userSelected: function(i){
@@ -97,11 +167,11 @@ const app = new Vue({
         },
         generateAnswer: function(i) {
             this.contacts[i].
-                    hystoryMessage.push({
-                                            text: 'ok', 
-                                            sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(), 
-                                            type: 'received'
-                                        });
+                hystoryMessage.push({
+                                        text: 'ok', 
+                                        sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(), 
+                                        type: 'received'
+                                    });
         },
         answersRandom: function(i) {
             if(this.sendMessage != ''){
@@ -115,6 +185,18 @@ const app = new Vue({
                 let windowChat = document.getElementsByClassName('central-message-box')[0]; 
                 windowChat.scrollTop = windowChat.scrollHeight;
             })
+        },
+        removeMessage: function(indexMessage, userIndex){
+            this.contacts[userIndex].hystoryMessage.splice(indexMessage,1);
+        },
+        openEmoji: function(){
+            this.isClicked = !this.isClicked
+        },
+        emojiSelected: function(index) {
+            this.emojiIndex = index;
+        },
+        emojiElIndexSelects: function(indexEl,emojiIndex) {
+            this.sendMessage += this.dataEmoji[emojiIndex][0].emoji[indexEl];
         }
     },
     computed: {

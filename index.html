@@ -16,6 +16,7 @@
 		<!-- VUE 2.x development version, includes helpful console warnings -->
 		<!-- Static (v2.6.12) -->
 		<script src="libs/vue.js" charset="utf-8"></script>
+		<script src="js/dataEmoji.js" charset="utf-8"></script>
 		
 	</head>
 	<body class="">
@@ -72,14 +73,36 @@
 						</div>
 					</div>
 					<div class="central-message-box d-flex">
-						<div class="message" v-for="message in contacts[currentUserIndex].hystoryMessage" :class="message.type">
+						<div class="message" v-for="(message,index) in contacts[currentUserIndex].hystoryMessage" :class="message.type">
 							<p>{{message.text}}</p>
 							<p class="time-message">{{message.sentTime}}</p>
-							<a><i class="fas fa-chevron-down"></i></a>
+							<a @click="removeMessage(index,currentUserIndex)" ><i class="fas fa-times"></i></a>
+							<div class="dropdown-menu" :class="{visible : isVisible}">
+								<ul class="dropdown-item">
+									<li>Elimina Messaggio</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="dropdown-emoji" :class="{'d-block' : isClicked}">
+						<div class="category-emoji">
+							<template v-for="(icon,index) in iconEmoji">
+								<div class="emoji-selected" :class="{'border-bottom-selected' : index == emojiIndex}"><i @click="emojiSelected(index)" :class="icon"></i></div>
+							</template>
+						</div>
+						<div class="emoji-list">
+							<template v-for="(emojiList,index) in dataEmoji[emojiIndex]">
+								<p> {{ emojiList.title }} </p>
+								<ul>
+									<li @click="emojiElIndexSelects(indexEl,emojiIndex)" v-for="(emoji,indexEl) in emojiList.emoji">
+										{{ emoji }}
+									</li>
+								</ul>
+							</template>
 						</div>
 					</div>
 					<div class="bottom-message-box custom_bar d-flex">
-						<i class="far fa-smile"></i>
+						<i @click="openEmoji()" class="far fa-smile"></i>
 						<input @keyup.enter="submit(sendMessage), answersRandom(currentUserIndex)" type="text" name="message-field" placeholder="Scrivi un messaggio" v-model="sendMessage">
 						<i class="fas fa-microphone"></i>
 					</div>
