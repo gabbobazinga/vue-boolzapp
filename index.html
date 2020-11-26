@@ -52,7 +52,10 @@
 						<div class="users-list">
 							<div @click="userSelected(index)" class="user-box d-flex" v-for="(contact, index) in filterUsers" :class="{bgSelected: index == currentUserIndex}">
 								<img :src="contact.avatarUrl" alt="">
-								<span>{{contact.nameUser}}</span>
+								<div>
+									<p>{{contact.nameUser}}</p>
+									<p class="last-message"> {{ viewLastMessage(index) }} </p>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -65,7 +65,6 @@ const contacts = [
         nameUser: 'Luisa',
         lastSeen: new Date().getHours() + ':' + new Date().getUTCMinutes(),
         hystoryMessage: [
-            
         ]
     },
     
@@ -168,7 +167,7 @@ const app = new Vue({
         generateAnswer: function(i) {
             this.contacts[i].
                 hystoryMessage.push({
-                                        text: 'ok', 
+                                        text: 'Ciao! 😀', 
                                         sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(), 
                                         type: 'received'
                                     });
@@ -197,6 +196,11 @@ const app = new Vue({
         },
         emojiElIndexSelects: function(indexEl,emojiIndex) {
             this.sendMessage += this.dataEmoji[emojiIndex][0].emoji[indexEl];
+        },
+        viewLastMessage(index) {
+                if(this.filterUsers[index].hystoryMessage.length > 0){
+                    return this.filterUsers[index].hystoryMessage[this.filterUsers[index].hystoryMessage.length -1].text;
+                }
         }
     },
     computed: {
@@ -204,6 +208,7 @@ const app = new Vue({
             return this.contacts.filter(contact => {
                 return contact.nameUser.toLowerCase().includes(this.inputSearchContact.toLowerCase());
             });
-        }
+        },
+        
     }
 });
