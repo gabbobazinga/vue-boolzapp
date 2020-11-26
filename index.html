@@ -63,10 +63,10 @@
 				<div class="message-box d-flex">
 					<div class="top-message-box custom_bar">
 						<div class="user-box-open d-flex">
-							<img :src="contacts[currentUserIndex].avatarUrl" alt="">
+							<img :src="filterUsers[currentUserIndex].avatarUrl" alt="">
 							<div class="user-open-text">
-								<span>{{contacts[currentUserIndex].nameUser}}</span>
-								<p>Ultimo accesso oggi alle {{contacts[currentUserIndex].lastSeen}}</p>
+								<span>{{filterUsers[currentUserIndex].nameUser}}</span>
+								<p>Ultimo accesso oggi alle {{filterUsers[currentUserIndex].lastSeen}}</p>
 							</div>
 						</div>
 						<div class="icon-top-message d-flex">
@@ -76,7 +76,7 @@
 						</div>
 					</div>
 					<div class="central-message-box d-flex">
-						<div class="message" v-for="(message,index) in contacts[currentUserIndex].hystoryMessage" :class="message.type">
+						<div class="message" v-for="(message,index) in filterUsers[currentUserIndex].hystoryMessage" :class="message.type">
 							<p>{{message.text}}</p>
 							<p class="time-message">{{message.sentTime}}</p>
 							<a @click="removeMessage(index,currentUserIndex)" ><i class="fas fa-times"></i></a>

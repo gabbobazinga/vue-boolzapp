@@ -151,11 +151,12 @@ const app = new Vue({
     },
     methods: {
         userSelected: function(i){
+            this.prevCurrentUserIndex = this.currentUserIndex;
             this.currentUserIndex = i;
         },
         submit: function(e) {
             if(e != ''){
-                this.contacts[this.currentUserIndex].
+                this.filterUsers[this.currentUserIndex].
                     hystoryMessage.push({
                                             text: e, 
                                             sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(), 
@@ -165,7 +166,7 @@ const app = new Vue({
             }
         },
         generateAnswer: function(i) {
-            this.contacts[i].
+            this.filterUsers[i].
                 hystoryMessage.push({
                                         text: 'Ciao! 😀', 
                                         sentTime: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(), 
@@ -186,7 +187,7 @@ const app = new Vue({
             })
         },
         removeMessage: function(indexMessage, userIndex){
-            this.contacts[userIndex].hystoryMessage.splice(indexMessage,1);
+            this.filterUsers[userIndex].hystoryMessage.splice(indexMessage,1);
         },
         openEmoji: function(){
             this.isClicked = !this.isClicked
